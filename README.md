@@ -1,12 +1,14 @@
-# DIP-Assignment-Photoshop-Like-Application
+# DIP Assignment Photoshop Like Application
 Self Record for Assignment Digital Image Processing
+
+Photoshop-like Image Editor build by PyQt5 and OpenCV. Designed to mimic Adobe Photoshop features. It combines standard drawing tools with advanced image processing algorithms.
 <img width="840" height="626" alt="image" src="https://github.com/user-attachments/assets/3b08b393-7447-4252-b666-1cd882ba81ab" />
 
-### Assignment 1
+## Assignment 1
 
 - Create & Loading Image
-- Geometric image transformations
-- Drawing Tools (Pen, Line, Shape, Paint Bucket), Color Palette
+- Geometric image transformations (Transform, Cropping, Scaling, Rotate)
+- Drawing Tools (Pen, Line, Shape, Paint Bucket), Color Palette (Customize)
 - Color Format Converter & Color Adjustment (Hue, Saturation, Brightness, Contrast, Intensity)
 - Thumbnail image
 - Select ROI
@@ -15,8 +17,8 @@ Self Record for Assignment Digital Image Processing
   <img width="435" height="319" alt="image" src="https://github.com/user-attachments/assets/8051b854-9721-4694-8fec-59f5a6d18714" />
 
 
-### Assignment 2
-- Sub windows
+## Assignment 2
+- Sub drawing windows (Support all operation expects of zoomin/zoonout)
 - Gridlines & Ruler
 - Real time Histogram Panel
 - Enhance Image Filter
@@ -45,7 +47,7 @@ Self Record for Assignment Digital Image Processing
   - Layer Clipping Mask
   - Layer Thumbnail image
 
-### Mini Project
+## Mini Project
 - Barcode Reader
   
   <img width="433" height="321" alt="image" src="https://github.com/user-attachments/assets/1e19cac3-0a67-4ed0-b827-b41c34877578" />
