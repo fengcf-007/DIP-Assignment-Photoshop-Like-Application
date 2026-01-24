@@ -701,11 +701,11 @@ class myWindowsOpencV(QMainWindow):
             rotate_submenu = layer_menu.addMenu("Rotate ")
             
             self.layer_flip_h_action = QAction("Flip &Horizontally(H)", self)
-            self.layer_flip_h_action.triggered.connect(lambda: self.flip_image("h"))
+            self.layer_flip_h_action.triggered.connect(lambda: self.layer_flip("h"))
             rotate_submenu.addAction(self.layer_flip_h_action)
             
             self.layer_flip_v_action = QAction("Flip &Vertically(V)", self)
-            self.layer_flip_v_action.triggered.connect(lambda: self.flip_image("v"))
+            self.layer_flip_v_action.triggered.connect(lambda: self.layer_flip("v"))
             rotate_submenu.addAction(self.layer_flip_v_action)
             
             rotate_submenu.addSeparator()
@@ -2375,7 +2375,7 @@ class myWindowsOpencV(QMainWindow):
 
         self.push_undo_state()
         layer = self.get_current_focus_layer()
-        img = layer.image
+        img = layer.image.copy()
     
         if mode == "h":
             flip_img = cv2.flip(img, 1)  # horizontal flip
@@ -2678,6 +2678,9 @@ class myWindowsOpencV(QMainWindow):
             current_focus.image_label.setCursor(Qt.CrossCursor)
             current_focus.image_label.mouseMoveEvent = preview_handler
             current_focus.image_label.mousePressEvent = apply_handler
+        else:
+            self.set_dialog_open(False)
+            
     def draw_text(self, image, text, x, y, scale, color, thickness):
         """
         Draws text using QPainter
@@ -2728,7 +2731,7 @@ class myWindowsOpencV(QMainWindow):
         
     def apply_text_on_click(self, event, image, text, font_scale, color, thickness):
         if self.display_image is None: return
-        self.dialog_open = False
+        self.set_dialog_open(False)
 
         
         x = event.pos().x()
@@ -2769,7 +2772,7 @@ class myWindowsOpencV(QMainWindow):
         current_il.mousePressEvent = current_il.default_mouse_press
         current_il.mouseMoveEvent = current_il.default_mouse_move
     def text_cancel(self, image):
-        self.dialog_open = False
+        self.set_dialog_open(False)
         
         current_focus = self.get_focus_window()
         current_il = current_focus.image_label
